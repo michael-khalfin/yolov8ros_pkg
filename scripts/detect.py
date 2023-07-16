@@ -97,11 +97,11 @@ def image_cb(img):
 if __name__ == '__main__':
     rospy.init_node('yoloros_detect_node', anonymous=True)
     
-    detect_pub = rospy.Publisher('predictions', BBoxes, queue_size=1)
-    img_topic = rospy.get_param('img_topic')
-    model_path = rospy.get_param('model_name')
-    show = rospy.get_param('show')
-    nth_image = rospy.get_param('nth_image')
+    detect_pub = rospy.Publisher('predictions1', BBoxes, queue_size=1)
+    img_topic = "/actor1/camera/image_raw"
+    model_path = "/home/reu-actor/actor_ws/src/yolov8ros_pkg/models/best.ptx"
+    show = True
+    nth_image = 5
     n = nth_image
     rospy.Subscriber(img_topic, Image, image_cb, queue_size=1)
     image_pub = rospy.Publisher('predictions/image/image_raw', Image, queue_size=1)

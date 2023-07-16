@@ -1,8 +1,16 @@
 <launch>
+  <group ns="actor1">
+    <include file="$(find avt_vimba_camera)/launch/mono_camera.launch">
+      <arg name="ip" value="192.168.0.40"/>
+      <arg name="reverse_x" value="true"/>
+      <arg name="reverse_y" value="true"/>
+    </include>
+  </group>
 
-    <arg name="img_topic" default="/cam_pub/image_raw" />
-    <arg name="model_name" default="yolov8n.pt" />
-    <arg name="show" default="false" />
+    <node pkg="yolov8ros_pkg" type="hello_world_camera_2.py" name="yolov8ros_pkg" output="screen" /> 
+    <arg name="img_topic" default="camera/image_raw" />
+    <arg name="model_name" default="best.pt" />
+    <arg name="show" default="true" />
     <arg name="nth_image" default="5" />
     
     <param name="img_topic" type="string" value="$(arg img_topic)" />
@@ -10,6 +18,8 @@
     <param name="show" type="bool" value="$(arg show)" />
     <param name="nth_image" type="int" value="$(arg nth_image)" />
     
-    <node name="yoloros_detect_node" pkg="yolov8ros_pkg" type="detect.py" required="true" output="screen" />
+    <group ns="actor1">
+      <node name="yoloros_detect_node" pkg="yolov8ros_pkg" type="detect.py" required="true" output="screen" />
+    </group>
     
 </launch>
