@@ -1,5 +1,5 @@
 <launch>
-  <group ns="actor1">
+  <group ns="actor1"> <!-- Make sure to insert the unique ACTor vehicle ID here -->
     <include file="$(find avt_vimba_camera)/launch/mono_camera.launch">
       <arg name="ip" value="192.168.0.40"/>
       <arg name="reverse_x" value="true"/>
@@ -18,7 +18,7 @@
     <param name="show" type="bool" value="$(arg show)" />
     <param name="nth_image" type="int" value="$(arg nth_image)" />
     
-    <group ns="actor1">
+    <group ns="actor1"> <!-- Make sure to insert the unique ACTor vehicle ID here -->
       <node name="yoloros_detect_node" pkg="yolov8ros_pkg" type="detect.py" required="true" output="screen" />
     </group>
     
