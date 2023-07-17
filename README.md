@@ -7,7 +7,7 @@
   <p align="center">
     Part 2/4
     <br />
-    <a href="https://github.com/michael-khalfin/tpn_pkg"><strong>Explore the code »</strong></a>
+    <a href="https://github.com/michael-khalfin/yolov8ros_pkg"><strong>Explore the code »</strong></a>
   </p>
 </div>
 
